@@ -70,6 +70,9 @@
       userCollapseText: 'read less',
       userCollapsePrefix: ' ',
 
+      //option for merge multi spaces
+      mergeMultiSpaces: true,
+
 
       // all callback functions have the this keyword mapped to the element in the jQuery set when .expander() is called
 
@@ -129,7 +132,7 @@
               moreClass = o.moreClass + '',
               lessClass = o.lessClass + '',
               expandSpeed = o.expandSpeed || 0,
-              allHtml = removeSpaces( $this.html() ),
+              allHtml = opts.mergeMultiSpaces ? removeSpaces( $this.html() ) : $this.html(),
               summaryText = allHtml.slice(0, o.slicePoint);
 
           // allow multiple classes for more/less links
